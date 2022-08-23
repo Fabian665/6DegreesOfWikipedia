@@ -1,6 +1,10 @@
-import networkx as nx
-import matplotlib.pyplot as plt
+def main():
+    graph = nx.complete_graph(5)
+    nx.draw(graph)
+    plt.show()
 
-G = nx.complete_graph(5)
-nx.draw(G)
-plt.show()
+
+if __name__ == "__main__":
+    import networkx as nx
+    import matplotlib.pyplot as plt
+    main()
