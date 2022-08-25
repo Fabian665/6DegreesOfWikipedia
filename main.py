@@ -1,3 +1,8 @@
+import networkx as nx
+import matplotlib.pyplot as plt
+import graphs
+
+
 def main():
     graph = nx.complete_graph(5)
     nx.draw(graph)
@@ -5,6 +10,4 @@ def main():
 
 
 if __name__ == "__main__":
-    import networkx as nx
-    import matplotlib.pyplot as plt
     main()
