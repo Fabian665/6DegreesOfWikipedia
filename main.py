@@ -14,7 +14,7 @@ def get_neighbours(page_id):
     return dic_neighbours
 
 
-def get_id_from_name(page_id):
+def get_id_from_name(page_name):
     pass
 
 
