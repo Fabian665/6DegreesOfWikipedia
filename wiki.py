@@ -60,6 +60,18 @@ def search(query):
 # print(search("Barack Obama"))
 
 
-ny = wikipedia.search("New York City", results=1, suggestion=False)
-# print(dir(ny[0]))
-print(dir(wikipedia.WikipediaPage(pageid=1874)))
+# ny = wikipedia.page(pageid=579)
+# ny = wikipedia.page("Tal Ben Chaim")
+# print(ny)
+# print(dir(wikipedia.WikipediaPage(pageid=1874)))
+
+
+query_params = {
+    'prop': 'info|pageprops',
+    'inprop': 'url',
+    'ppprop': 'disambiguation',
+    'redirects': '',
+    'pageids': 579
+}
+
+print(wiki_request(query_params)['query'])
