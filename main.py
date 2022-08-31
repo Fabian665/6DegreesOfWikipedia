@@ -18,7 +18,9 @@ def get_id_from_name(page_id):
 
 
 def create_json_file():
-    pass
+    with open('wikipedia.json', 'w') as f:
+        print("The json file is created")
+
 
 
 def main():
