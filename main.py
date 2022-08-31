@@ -5,7 +5,26 @@ import json
 
 def read_from_index_file():
     """generator for id  of pages from the index file"""
-    pass
+
+    def read_from_index_file():
+        """generator for id of pages from the index file"""
+
+        def csv_reader(file_name):
+            for row in open(file_name, "r", encoding="utf8"):
+                yield row
+
+        csv_gen = csv_reader("enwiki-20220101-pages-articles-multistream-index.txt")
+        row_count = 0
+        page_id = 0
+        page_name = ""
+
+        for row in csv_gen:
+            page_id = row.split(":", 2)[1]
+            page_name = row.split(":", 2)[2][:-1]
+            yield page_name, page_id
+            row_count += 1
+        # print(f"Row count is {row_count}")
+        # print(page_id)
 
 
 def get_neighbours(page_id):
