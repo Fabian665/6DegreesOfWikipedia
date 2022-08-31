@@ -1,6 +1,6 @@
 import networkx as nx
 import matplotlib.pyplot as plt
-
+import wikipedia
 
 def read_from_index_file():
     """generator for id  of pages from the index file"""
@@ -8,8 +8,9 @@ def read_from_index_file():
 
 
 def get_neighbours(page_id):
-    """het neighbours of given page_id"""
-    pass
+    """get neighbours of given page_id"""
+    dic_neighbours = wikipedia.WikipediaPage(pageid=page_id).links
+    return dic_neighbours
 
 
 def get_id_from_name(page_id):
