@@ -1,6 +1,7 @@
 import networkx as nx
 import matplotlib.pyplot as plt
 import wikipedia
+import json
 
 def read_from_index_file():
     """generator for id  of pages from the index file"""
@@ -18,8 +19,15 @@ def get_id_from_name(page_id):
 
 
 def create_json_file():
+    keys = read_from_index_file()
+    dic = {}
+    for name in keys:
+        neighbours = get_neighbours(name)
+        dic[name] = neighbours
     with open('wikipedia.json', 'w') as f:
-        print("The json file is created")
+        json.dump(dic, f)
+
+
 
 
 
