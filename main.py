@@ -18,8 +18,6 @@ def read_from_index_file(filename):
     for row in csv_gen:
         page_id = row.split(":", 2)[1]
         page_name = row.split(":", 2)[2][:-1]
-        if row_count > 150:
-            break
         yield page_name, page_id
         row_count += 1
 
@@ -45,6 +43,9 @@ def create_json_file():
             print(f'name {name} is a wierdo')
         except wikipedia.exceptions.DisambiguationError:
             print(f'name {name} is even weirder')
+        except Exception as e:
+            print(name, e)
+
     with open('wikipedia.json', 'w') as f:
         json.dump(dic, f, indent=4)
 
